@@ -32,7 +32,7 @@ public class EmailServiceImpl {
         helper.setSubject(mailUser.getSubject());
         helper.setFrom(mailUser.getSender());
 
-        for(MailAttachment mailAttachment : mailUser.getAttachment()) {
+        for(MailAttachment mailAttachment : mailUser.getAttachments()) {
             helper.addAttachment(mailAttachment.getNameAttachment(), mailAttachment.getAttachment());
         }
 
