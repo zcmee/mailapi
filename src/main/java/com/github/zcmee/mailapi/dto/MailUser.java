@@ -5,17 +5,12 @@ import java.util.List;
 import java.util.Map;
 
 public class MailUser {
-
     private String recipient;
     private String subject;
     private String sender;
-    private Map<String, Object> contextVariables;
     private String nameTemplate;
-    private List<MailAttachment> attachment;
-
-    public MailUser() {
-        attachment = new ArrayList<>();
-    }
+    private Map<String, Object> contextVariables;
+    private List<MailAttachment> attachments = new ArrayList<>();
 
     public String getRecipient() {
         return recipient;
@@ -57,12 +52,18 @@ public class MailUser {
         this.nameTemplate = nameTemplate;
     }
 
-    public List<MailAttachment> getAttachment() {
-        return attachment;
+    public List<MailAttachment> getAttachments() {
+        return attachments;
     }
 
     public void setAttachment(MailAttachment mailAttachment) {
-        this.attachment.add(mailAttachment);
+        this.attachments.add(mailAttachment);
+    }
+
+    public void setAttachment(List<MailAttachment> mailAttachments) {
+        for (MailAttachment mailAttachment : mailAttachments) {
+            this.attachments.add(mailAttachment);
+        }
     }
 
     @Override
